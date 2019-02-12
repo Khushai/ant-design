@@ -15,6 +15,9 @@ You could pass `AutoComplete.Option` as children of `AutoComplete`, instead of u
 
 ````jsx
 import { AutoComplete } from 'antd';
+const Citys = [
+'Haripur','Islabamabad','Abbottabad','Multan'
+]
 
 const Option = AutoComplete.Option;
 
@@ -25,10 +28,10 @@ class Complete extends React.Component {
 
   handleSearch = (value) => {
     let result;
-    if (!value || value.indexOf('@') >= 0) {
+    if (!value) {
       result = [];
     } else {
-      result = ['gmail.com', '163.com', 'qq.com'].map(domain => `${value}@${domain}`);
+      result = Citys.map(city => `${value}${city}`);
     }
     this.setState({ result });
   }
